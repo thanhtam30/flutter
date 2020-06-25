@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './models/Movie.dart';
-
+import './DetailsScreen.dart';
 class SwiperExample extends StatefulWidget {
   final Movies movies;
   SwiperExample({this.movies});
@@ -25,7 +25,10 @@ class _SwiperExampleState extends State<SwiperExample> {
                       key: Key(movies[index].id),
                child: InkWell(
               onTap: () {
-                print("${movies[index]} clicked");
+                // print("${movies[index]} clicked");
+                Navigator.push(context, MaterialPageRoute(builder: (_){
+                  return DetailsScreen(movies: movies[index]);
+                }));
               },
                child: Padding(
                   padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
